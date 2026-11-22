@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#000000">
+
+<title>V1KR4M_07 | Fluid Simulation</title>
+
+<script src="dat.gui.min.js"></script>
+
+<style>
+* {
+    box-sizing: border-box;
+    user-select: none;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #000;
+}
+
+body {
+    position: fixed;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* Original control panel */
+.dg {
+    opacity: 0.9;
+    z-index: 100;
+}
+
+.dg .property-name {
+    overflow: visible;
+}
+
+/* Remove original mobile app popup */
+.promo {
+    display: none !important;
+}
+
+/* V1KR4M watermark */
+.watermark {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(180px, 30vw, 350px);
+    height: auto;
+    opacity: 0.65;
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* Coffee widget */
+.coffee-widget {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 9999;
+    font-family: Arial, sans-serif;
+}
+
+/* Coffee button */
+.coffee-widget summary {
+    list-style: none;
+    cursor: pointer;
+    color: white;
+    background: #ffb347;
+    padding: 13px 18px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 0 4px 18px #0008;
+    text-align: center;
+}
+
+.coffee-widget summary::-webkit-details-marker {
+    display: none;
+}
+
+.coffee-widget summary:hover {
+    background: #ff982b;
+}
+
+/* QR panel */
+.coffee-panel {
+    position: absolute;
+    right: 0;
+    bottom: 60px;
+    width: min(310px, 82vw);
+    padding: 8px;
+    border-radius: 15px;
+    background: rgba(15, 15, 25, 0.96);
+    border: 1px solid #ffffff40;
+    box-shadow: 0 5px 25px #000a;
+}
+
+.coffee-panel img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.upi-open {
+    display: block;
+    margin: 8px 0 3px;
+    padding: 10px;
+    color: white;
+    background: #2879e8;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+@media(max-width: 600px) {
+    .watermark {
+        width: 230px;
+    }
+
+    .coffee-widget {
+        right: 12px;
+        bottom: 12px;
+    }
+
+    .coffee-widget summary {
+        padding: 11px 14px;
+        font-size: 12px;
+    }
+}
+</style>
+
+<script>
+window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments);
+};
+ga.l = +new Date;
+</script>
+
+</head>
+
+<body>
+
+<!-- Original fluid simulation -->
+<canvas></canvas>
+
+<!-- Your transparent watermark -->
+<img
+    src="V1KR4M_07_watermark.png"
+    class="watermark"
+    alt="V1KR4M_07"
+>
+
+<!-- Buy me a coffee -->
+<details class="coffee-widget">
+
+    <summary>☕ BUY ME A COFFEE</summary>
+
+    <div class="coffee-panel">
+
+        <img
+            src="Buy_Me_a_Coffee_UPI.png"
+            alt="Scan UPI QR code to support"
+        >
+
+        <a
+            class="upi-open"
+            href="upi://pay?pa=9823714470%40fam&amp;pn=V1KR4M_07&amp;cu=INR"
+        >
+            Open UPI App
+        </a>
+
+    </div>
+
+</details>
+
+<!-- Keep these hidden elements for original script.js compatibility -->
+<div class="promo">
+    <span class="promo-close">&times;</span>
+    <a id="apple_link"></a>
+    <a id="google_link"></a>
+</div>
+
+<!-- Original simulation engine -->
+<script src="script.js"></script>
+
+<!-- Remove unwanted original social/app controls -->
+<script>
+
+(function removeOriginalLinks() {
+
+    const unwanted = [
+        "Github",
+        "Twitter",
+        "Discord",
+        "Check out mobile app"
+    ];
+
+    document.querySelectorAll(".dg .cr").forEach(row => {
+
+        const label = row.textContent
+            .trim()
+            .replace(/\s+/g, " ");
+
+        if (unwanted.includes(label)) {
+            row.remove();
+        }
+
+    });
+
+})();
+
+</script>
+
+</body>
+</html>
